@@ -53,6 +53,7 @@ else {
 
 
                         // ЗАДАЧА НА ДНИ НЕДЕЛИ 
+                        
 let lang = prompt ("Введите: ru или en")
 let ruArr = new Array("Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье")
 let enArr = new Array("Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday")
