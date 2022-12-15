@@ -19,9 +19,9 @@ function calcSum(a,b) {
 
 let num1 = +prompt("Введите первое число")
 let num2 = +prompt("Введите второе число")
-let result = calcSum(num1,num2)
 
-alert (result)
+
+alert (calcSum(num1,num2))
 
 
 
@@ -41,6 +41,8 @@ if(checkPalindrom(b)) {
 else {
     alert (`Введенное вами: "${b}" - не является палиндромом.`)
 }
+
+//=================вариант покороче=====================
 
 function checkPalindrom(a) {
     for (i=0; i<a.length/2; i++) {
