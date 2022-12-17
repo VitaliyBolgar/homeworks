@@ -97,6 +97,9 @@ console.log(arr3);
         // вар2
 let del = arr3.splice(1,3);
 console.log(del);
+        // вар3
+let a = arr3.slice(1,-1)
+console.log(a);
 
 
 // ------ Задача 12 ------ 
