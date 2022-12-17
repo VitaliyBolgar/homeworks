@@ -59,8 +59,8 @@ console.log(arr1);
 
 // ------ Задача 6 ------
 // Дан массив ['js', 'css', 'jq']. Выведите на экран первый элемент.
-// let deletedFirst = arr2.shift();
-// console.log(deletedFirst);
+let deletedFirst = arr2.shift();
+console.log(deletedFirst);
 
 
 // ------ Задача 7 ------
