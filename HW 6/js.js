@@ -78,3 +78,6 @@ console.log(union([].concat(arr,arr1,arr2)));
 const newArr = [].concat(arr, arr1, arr2);
 const uniqueArr = [...new Set(newArr)]
 console.log(union(uniqueArr));
+
+const myFunction = (...arrays) => Array.from(new Set(arrays.flat()))
+console.log(myFunction(arr, arr1, arr2));
