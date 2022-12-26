@@ -18,7 +18,7 @@ const company = {
 // Задача 1:
 // Напишите функцию для удаления переданного в параметры ключа из переданного объекта.
 
-delete company.manager 
+delete company.manager;
 console.log(company);
 
 // Задача 2
@@ -31,13 +31,13 @@ console.log(Object.keys(company).length); // - object.keys возвращает 
 //-------------перебор
 let a = 0;
 for (let key in company) {
-    a++
+    a++;
 } 
 console.log(a);
 
 
 // Задача 3
-// Напишите функцию которая принимает url а возвращает данные с сервера
+// Напишите функцию которая принимает url а возвращает данные с сервера / Вытащите покемона
 
 const myPokemon = async() => { 
   let pokemons = await fetch('https://pokeapi.co/api/v2/pokemon/charmander') 
@@ -46,5 +46,5 @@ const myPokemon = async() => {
   console.log(pokemons.name); // - просто имя покемона
 }
 
-myPokemon()
+myPokemon();
 
