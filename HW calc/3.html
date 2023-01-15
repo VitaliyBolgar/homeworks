@@ -1,0 +1,89 @@
+<html>
+    <head>
+  <title>Калькулятор</title>
+  <style>
+  .head  {width:180; text-align: center; border:0px;}
+   DIV { height:40; width:40; border: solid 1px; text-align: center;}
+  .hid {width:180; text-align: center; border:0px;} 
+  </style>
+ 
+  
+    </head>
+    <body> 
+      <table>
+   <tr><div class="head">Калькулятор</div></tr>
+   <tr><div class="head"><textarea id = "area"></textarea></div></tr>
+  
+      <tr>  
+       <th><div id = "c">C</div> </th>
+       <th> <div id = "+/-">+/-</div> </th>
+       <th><div id = "%">%</div> </th>
+       <th><div id = "del">DEL</div> </th> 
+      </tr>
+ 
+      <tr>  
+       <th><div id = "7" value = "7" class = "digits">7</div> </th>
+       <th> <div id = "8" value = "8" class = "digits">8</div> </th>
+       <th><div id = "9" value = "9" class = "digits">9</div> </th>
+       <th><div id = "/" value = "/" class = "oper">/</div> </th> 
+      </tr>
+ 
+      <tr>  
+       <th><div id = "4" value = "4" class = "digits">4</div> </th>
+       <th> <div id = "5" value = "5" class = "digits">5</div> </th>
+       <th><div id = "6" value = "6" class = "digits">6</div> </th>
+       <th><div id = "*" value = "*" class = "oper">*</div> </th> 
+      </tr>
+ 
+      <tr>  
+       <th><div id = "1" value = "1" class = "digits">1</div> </th>
+       <th> <div id = "2" value = "2" class = "digits">2</div> </th>
+       <th><div id = "3" value = "3" class = "digits">3</div> </th>
+       <th><div id = "-" value = "-" class = "oper">-</div> </th> 
+      </tr>
+ 
+      <tr>  
+       <th><div id = "0" value = "0" class = "digits">0</div> </th>
+       <th> <div id = ".">.</div> </th>
+       <th><div id = "="  onclick = "calculate()" >=</div> </th>
+       <th><div id = "+" value = "+" class = "oper">+</div> </th> 
+      </tr>
+ 
+       </table> 
+<tr><div class="hid"><textarea id = "hidarea"></textarea></div></tr>
+ 
+ 
+ <script>
+var area = document.getElementById("area");
+var hid = document.getElementById("hidarea")
+ 
+area.innerHTML = "";
+ 
+function fun(){
+    if(this.getAttribute('value') == "+" || 
+        this.getAttribute('value') == "-"||
+        this.getAttribute('value') == "*"||
+        this.getAttribute('value') == "/") {
+        hid.innerHTML += this.getAttribute('value');
+        area.innerHTML = "";
+    }
+    else {
+    area.innerHTML += Number(this.getAttribute('value'));
+    
+    hid.innerHTML += Number(this.getAttribute('value'));
+}
+}
+ 
+function calculate() {
+    var result = eval(document.getElementById("hidarea").value);
+    area.innerHTML = result;
+}
+    
+var collection = document.getElementsByClassName("digits");
+for(var i = 0; i < collection.length; i++) {
+    collection[i].addEventListener('click', fun)
+}
+ 
+var collection2 = document.getElementsByClassName("oper");
+for(var i = 0; i < collection2.length;i++) {
+    collection2[i].addEventListener('click', fun) }
