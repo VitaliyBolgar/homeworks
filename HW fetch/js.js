@@ -12,7 +12,6 @@ const statsDiv2 = document.querySelector('.stats2');
 
 
 
-
 // Создаем таблицу для статов
 let table = document.createElement('table');
 let tHead = document.createElement('thead')
@@ -126,7 +125,7 @@ arrStatsNum1.forEach(td => {
 
 const getPokemon1 = function(name1) {
     fetch(`https://pokeapi.co/api/v2/pokemon/${name1}`) // вызываем переменную, которую обязательно прописать в параметре функции большой
-    .then((data1) => data1.json()) // лучше использовать стрелочную функцию
+    .then((data1) => data1.json()) 
     .then(data1 => { 
         // аватар персонажа
         const frontImg = document.createElement('img');
@@ -155,8 +154,9 @@ const getPokemon1 = function(name1) {
         b8.append(pokSpDef)
         })
     .catch(() => {
-        console.log('error -_-')  
+        alert(`Wait a sec... Is this ${name1.toUpperCase()} Pokemon a new one? Check name again! `)
     })
+    
 };
 const getPokemon2 = function(name2) {
     fetch(`https://pokeapi.co/api/v2/pokemon/${name2}`) // вызываем переменную, которую обязательно прописать в параметре функции большой
@@ -189,19 +189,20 @@ const getPokemon2 = function(name2) {
         b16.append(pokSpDef1)
         })
     .catch(() => {
-        console.log('error -_-')  
+        alert(`Wait a sec... Is this ${name2.toUpperCase()} Pokemon a new one? Check name again!`) 
     })
+    
 };
 
 // ------ E V E N T S ------ //
 
 
+
 btn1.addEventListener('click', () => {
     const name1 = inp1.value.toLowerCase()
     getPokemon1(name1);
-})
+}, {once:true}) // объект позволяет выполнить код только один раз •︎ ◡︎ •︎
 btn2.addEventListener('click', () => {
     const name2 = inp2.value.toLowerCase()
     getPokemon2(name2);
-})
-
+}, {once:true})
