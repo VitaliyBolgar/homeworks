@@ -200,7 +200,7 @@ const getPokemon2 = function(name2) {
 
 btn1.addEventListener('click', () => {
     const name1 = inp1.value.toLowerCase()
-    getPokemon1(name1);
+    getPokemon1(name1)
 }, {once:true}) // объект позволяет выполнить код только один раз •︎ ◡︎ •︎
 btn2.addEventListener('click', () => {
     const name2 = inp2.value.toLowerCase()
