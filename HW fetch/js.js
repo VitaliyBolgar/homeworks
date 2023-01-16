@@ -169,7 +169,6 @@ const getPokemon1 = function(name1) {
             pokSpDef = document.createElement('p');
             b8.append(pokSpDef)
         }  
-        console.log(`pokSpDef`, pokSpDef);
         pokSpDef.innerHTML = `${Object.values(data1.stats[4]).slice(0,1)}`
         })
     .catch((err) => {
