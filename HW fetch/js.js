@@ -127,7 +127,6 @@ const getPokemon1 = function(name1) {
     fetch(`https://pokeapi.co/api/v2/pokemon/${name1}`) // вызываем переменную, которую обязательно прописать в параметре функции большой
     .then((data1) => data1.json()) 
     .then(data1 => { 
-        console.log(data1);
         // аватар персонажа
         let frontImg = a.querySelector('img');
         if(!frontImg){
