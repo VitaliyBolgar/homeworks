@@ -127,34 +127,55 @@ const getPokemon1 = function(name1) {
     fetch(`https://pokeapi.co/api/v2/pokemon/${name1}`) // вызываем переменную, которую обязательно прописать в параметре функции большой
     .then((data1) => data1.json()) 
     .then(data1 => { 
+        console.log(data1);
         // аватар персонажа
-        const frontImg = document.createElement('img');
-        frontImg.style = 'width: 100px; height:100px';
+        let frontImg = a.querySelector('img');
+        if(!frontImg){
+            frontImg = document.createElement('img');
+            frontImg.style = 'width: 100px; height:100px';
+            a.append(frontImg);
+        }
         frontImg.src = data1.sprites.front_default;
-        a.append(frontImg);
-        const backImg = document.createElement('img');
-        backImg.style = 'width: 100px; height: 100px';
+        let backImg = x.querySelector('img');
+        if(!backImg){
+            backImg = document.createElement('img');
+            backImg.style = 'width: 100px; height: 100px';
+            x.append(backImg);
+        }
         backImg.src = data1.sprites.back_default;
-        x.append(backImg);
         // статы персонажа ATK
-        const pokATK = document.createElement('p')
+        let pokATK = b2.querySelector('p');
+        if(!pokATK){
+            pokATK = document.createElement('p')
+            b2.append(pokATK)
+        }
         pokATK.innerHTML = `${Object.values(data1.stats[1]).slice(0,1)}`
-        b2.append(pokATK)
         // stats spATK
-        const pokSpATK = document.createElement('p')
+        let pokSpATK = b4.querySelector('p');
+        if(!pokSpATK){
+            pokSpATK = document.createElement('p')
+            b4.append(pokSpATK)
+        }
         pokSpATK.innerHTML = `${Object.values(data1.stats[3]).slice(0,1)}`
-        b4.append(pokSpATK)
         // stats Defence
-        const pokDef = document.createElement('p')
+        let pokDef = b6.querySelector('p');
+        if(!pokDef){
+            pokDef = document.createElement('p')
+            b6.append(pokDef)
+        }
         pokDef.innerHTML = `${Object.values(data1.stats[2]).slice(0,1)}`
-        b6.append(pokDef)
         // stats spDefence
-        const pokSpDef = document.createElement('p')
+        let pokSpDef = b8.querySelector('p');
+        if(!pokSpDef){
+            pokSpDef = document.createElement('p');
+            b8.append(pokSpDef)
+        }  
+        console.log(`pokSpDef`, pokSpDef);
         pokSpDef.innerHTML = `${Object.values(data1.stats[4]).slice(0,1)}`
-        b8.append(pokSpDef)
         })
-    .catch(() => {
-        alert(`Wait a sec... Is this ${name1.toUpperCase()} Pokemon a new one? Check name again! `)
+    .catch((err) => {
+        console.error(err);
+        alert(`Wait a sec... Is this ${name1.toUpperCase()} Pokemon a new one? Check name again! Check the console for more information`)
     })
     
 };
@@ -163,33 +184,52 @@ const getPokemon2 = function(name2) {
     .then((data2) => data2.json()) // лучше использовать стрелочную функцию
     .then(data2 => { 
         // аватар персонажа
-        const frontImg1 = document.createElement('img');
-        frontImg1.style = 'width: 100px; height:100px';
+        let frontImg1 = b.querySelector('img');
+        if(!frontImg1) {
+            frontImg1 = document.createElement('img');
+            frontImg1.style = 'width: 100px; height:100px';
+            b.append(frontImg1);
+        }
         frontImg1.src = data2.sprites.front_default;
-        b.append(frontImg1);
-        const backImg1 = document.createElement('img');
-        backImg1.style = 'width: 100px; height: 100px';
+        let backImg1 = y.querySelector('img');
+        if(!backImg1){
+            backImg1 = document.createElement('img');
+            backImg1.style = 'width: 100px; height: 100px';
+            y.append(backImg1);
+        }
         backImg1.src = data2.sprites.back_default;
-        y.append(backImg1);
         // статы персонажа ATK
-        const pokATK1 = document.createElement('p')
+        let pokATK1 = b12.querySelector('p');
+        if(!pokATK1){
+            pokATK1 = document.createElement('p')
+            b10.append(pokATK1)
+        }
         pokATK1.innerHTML = `${Object.values(data2.stats[1]).slice(0,1)}`
-        b10.append(pokATK1)
         // stats spATK
-        const pokSpATK1 = document.createElement('p')
+        let pokSpATK1 = b14.querySelector('p');
+        if(!pokSpATK1){
+            pokSpATK1 = document.createElement('p')
+            b12.append(pokSpATK1)
+        }
         pokSpATK1.innerHTML = `${Object.values(data2.stats[3]).slice(0,1)}`
-        b12.append(pokSpATK1)
         // stats Defence
-        const pokDef1 = document.createElement('p')
+        let pokDef1 = b14.querySelector('p');
+        if(!pokDef1) {
+            pokDef1 = document.createElement('p')
+            b14.append(pokDef1)
+        }
         pokDef1.innerHTML = `${Object.values(data2.stats[2]).slice(0,1)}`
-        b14.append(pokDef1)
         // stats spDefence
-        const pokSpDef1 = document.createElement('p')
+        let pokSpDef1 = b16.querySelector('p');
+        if(!pokSpDef1){
+            pokSpDef1 = document.createElement('p')
+            b16.append(pokSpDef1)
+        }
         pokSpDef1.innerHTML = `${Object.values(data2.stats[4]).slice(0,1)}`
-        b16.append(pokSpDef1)
         })
-    .catch(() => {
-        alert(`Wait a sec... Is this ${name2.toUpperCase()} Pokemon a new one? Check name again!`) 
+    .catch((err) => {
+        console.error(err);
+        alert(`Wait a sec... Is this ${name2.toUpperCase()} Pokemon a new one? Check name again! Check the console for more information`) 
     })
     
 };
@@ -201,8 +241,8 @@ const getPokemon2 = function(name2) {
 btn1.addEventListener('click', () => {
     const name1 = inp1.value.toLowerCase()
     getPokemon1(name1)
-}, {once:true}) // объект позволяет выполнить код только один раз •︎ ◡︎ •︎
+});
 btn2.addEventListener('click', () => {
-    const name2 = inp2.value.toLowerCase()
+    const name2 = inp2.value.toLowerCase();
     getPokemon2(name2);
-}, {once:true})
+});
