@@ -144,3 +144,8 @@ h1 {
     inset -3px -1px 1px 1px lightgray;
         
 }
+
+.frontPic1, .backPic1, .frontPic2, .backPic2 {
+    width: 100px;
+    height: 100px;
+}
