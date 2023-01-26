@@ -10,18 +10,26 @@
 <body>
     <div class="container">
         <h1>TO DO LIST</h1>
+        
+        <div class="search-container">
+            <input type="text" class="inpSearch" placeholder="Search...">
+        </div>   
+        <br>
         <div class="inp-container">
-            <input type="text" class="inp">
+            <input type="text" class="inp" placeholder="Enter new task">
             <button class="btn">✚</button>
         </div>
+        <div class="progressBar">
+            <p>Your progress:</p>
+            <progress class="progress" value="0" max="0"></progress>
+        </div>
         <div class="tasks-container">
+            <h2>Tasks for today:</h2>
             <ul class="ul"></ul>
         </div>
-       
-        <div class="progressBar">
-            <div class="completeTaskBar" value="50" max="100"></div>
-        </div>
+        
     </div>
+   
     <script src="./scriptHW.js"></script>
 </body>
 </html>
